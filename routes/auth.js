@@ -1,14 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-const { register, login, getMe } = require("../controller/authController");
-const { protect } = require("../middleware/auth");
+const {
+  registerUser,
+  login,
+  getMe,
+} = require("../controller/authController");
 
-// Public routes — anyone can call these
-router.post("/register", registerUser);; // POST /api/auth/register
-router.post("/login", login); // POST /api/auth/login
+const protect = require("../middleware/auth.middleware");
 
-// Protected route — needs a valid token (added by the protect middleware)
-router.get("/me", protect, getMe); // GET  /api/auth/me
+router.post("/register", registerUser);
+router.post("/login", login);
+router.get("/me", protect, getMe);
 
 module.exports = router;

@@ -20,7 +20,7 @@ const generateToken = (userId) => {
  * Returns the created user's basic info plus a token so they're
  * immediately "logged in" after signing up.
  */
-exports.register = async (req, res) => {
+exports.registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
