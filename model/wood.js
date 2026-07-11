@@ -30,9 +30,8 @@ const woodSchema = new mongoose.Schema(
       min: 0,
     },
     description: {
-        type: Boolean,
-        default: true,
-
+      type: String,
+      trim: true,
     },
     available: {
         type: Boolean,
